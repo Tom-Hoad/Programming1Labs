@@ -14,7 +14,7 @@ public abstract class Animal implements Comparable<Animal> {
 
     // The constructor method for an animal. Takes no parameters.
     public Animal() {
-        this("newborn", 0);
+        this("Newborn", 0);
     }
 
     // The method to get the name of an animal.
