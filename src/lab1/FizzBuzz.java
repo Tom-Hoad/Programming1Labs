@@ -1,5 +1,7 @@
+/* Lab 1: Hello World, Guessing Game & FizzBuzz */
+package lab1;
+
 public class FizzBuzz {							// Creates the class FizzBuzz.
-	
 	public static void main(String[] args) {
 		for (Integer i = new Integer(1); i < 61; i++) {		// Starts a for loop that will go from 1 to 60.
 			System.out.println();				// Begins a new line on the output.

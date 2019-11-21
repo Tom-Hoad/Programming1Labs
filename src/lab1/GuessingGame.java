@@ -1,5 +1,7 @@
+/* Lab 1: Hello World, Guessing Game & FizzBuzz */
+package lab1;
+
 public class GuessingGame {							// Creates the class GuessingGame.
-	
 	public static void main(String[] args) {
 		int numberToGuess;					// The variable that will store the number to be guessed.
 		int guessedNumber;					// The variable that will store the users latest input.

@@ -1,6 +1,8 @@
 /* Lab 6: Inheritance and Polymorphism */
 package lab6;
 
+import lab8.part2.Food;
+
 public abstract class Omnivore extends Animal {
     // The constructor method for a omnivore.
     public Omnivore(String name, int age) {

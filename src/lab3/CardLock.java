@@ -1,3 +1,6 @@
+/* Lab 3: Methods, Object Interactions and Testing */
+package lab3;
+
 public class CardLock {
     SmartCard lastCard;         // Declaration of instance variables.
     boolean unlocked;

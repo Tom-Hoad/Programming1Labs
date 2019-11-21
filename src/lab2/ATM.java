@@ -1,3 +1,6 @@
+/* Lab 1: Classes, Conditions & Control Statements */
+package lab2;
+
 public class ATM {
 	Toolbox myToolbox = new Toolbox();		// Creates a toolbox object for ATM.java.
 	

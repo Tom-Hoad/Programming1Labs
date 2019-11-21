@@ -1,3 +1,6 @@
+/* Lab 3: Methods, Object Interactions and Testing */
+package lab3;
+
 public class SmartCard {
     private String owner;		// Declaration of instance variables.
     private boolean staff;

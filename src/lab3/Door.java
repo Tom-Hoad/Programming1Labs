@@ -1,3 +1,6 @@
+/* Lab 3: Methods, Object Interactions and Testing */
+package lab3;
+
 /**
  * A door with an optional card lock.
  * Lab 3 COMP1202.

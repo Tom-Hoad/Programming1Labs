@@ -1,3 +1,6 @@
+/* Lab 3: Methods, Object Interactions and Testing */
+package lab3;
+
 public class Tester {
 
     public static void main(String... args) {
