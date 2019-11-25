@@ -2,7 +2,7 @@
 package lab8.part2;
 
 // The class of Omnivore. Subclass to the Animal class.
-public abstract class Omnivore extends Animal implements Comparable<Animal> {
+public abstract class Omnivore extends Animal {
     // The constructor method for a omnivore.
     public Omnivore(String name, int age) {
         super(name, age);

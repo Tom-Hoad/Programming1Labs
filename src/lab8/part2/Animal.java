@@ -41,7 +41,8 @@ public abstract class Animal implements Comparable<Animal> {
     }
 
     // The method to compare the ages of two animals.
+    @Override
     public int compareTo(Animal animal) {
-        return this.age - animal.getAge();
+        return Integer.compare(getAge(), animal.getAge());
     }
 }

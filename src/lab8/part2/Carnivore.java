@@ -2,7 +2,7 @@
 package lab8.part2;
 
 // The class of Carnivore. Subclass to the Animal class.
-public abstract class Carnivore extends Animal implements Comparable<Animal> {
+public abstract class Carnivore extends Animal {
     // The constructor method for a carnivore. Takes a name and age.
     public Carnivore(String name, int age) {
         super(name, age);

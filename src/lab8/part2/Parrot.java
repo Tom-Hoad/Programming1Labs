@@ -2,7 +2,7 @@
 package lab8.part2;
 
 // The class of Parrot. Subclass to the Omnivore class.
-public class Parrot extends Omnivore implements Comparable<Animal> {
+public class Parrot extends Omnivore {
     // The constructor method for a parrot. Takes a name and age.
     public Parrot(String name, int age) {
         super(name, age);

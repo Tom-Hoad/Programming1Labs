@@ -25,6 +25,7 @@ public class Demo {
             System.out.println(a.getName());
         }
 
+        // Adding Collections.reverseOrder() as a parameter will sort the array list into reverse order.
         Collections.sort(animals);
 
         for (Animal a : animals) {
