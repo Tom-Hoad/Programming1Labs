@@ -1,10 +1,7 @@
 /* Lab 9: Handling Files */
 package lab9;
 
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 import java.util.ArrayList;
 
 // The class FlashCardReader.
@@ -14,8 +11,7 @@ public class FlashCardReader {
     // The FlashCardReader constructor method. Instantiates the buffered reader if given a valid filename.
     public FlashCardReader(String filename) {
         try {
-            // ("H:\\ProgrammingLabs\\src\\lab9\\")
-            reader = new BufferedReader(new FileReader("D:\\Documents\\IdeaProjects\\Programming1Labs\\src\\lab9\\" + filename));
+            reader = new BufferedReader(new FileReader(new File("src/lab9", filename)));
         } catch (FileNotFoundException e) {
             System.out.println("Error: The file you want could not be found.");
         }

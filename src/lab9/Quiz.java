@@ -33,17 +33,17 @@ public class Quiz {
 
         for (FlashCard flashCard : flashCards) {
             // Displays the questions.
-            System.out.println("Q: " + flashCard.getQuestion());
+            System.out.println(flashCard.getQuestion());
 
             // Reads the answer and checks it.
             String userAnswer = toolbox.readStringFromCmd();
             userAnswers.add(userAnswer);
             if (userAnswer.equals(flashCard.getAnswer())) {
-                System.out.println("Correct!");
+                System.out.println("right");
                 userResults.add("right");
                 score++;
             } else {
-                System.out.println("Wrong!");
+                System.out.println("wrong");
                 System.out.println("The correct answer is: " + flashCard.getAnswer());
                 userResults.add("wrong");
             }
@@ -53,7 +53,6 @@ public class Quiz {
         if (saveResults.equals("Y")) {
             save();
         }
-
     }
 
     // Gets the score.
@@ -62,7 +61,7 @@ public class Quiz {
     }
 
     // Gets the percentage score.
-    public int getPercentage() {
+    public double getPercentage() {
         return (score / flashCards.size()) * 100;
     }
 
@@ -73,8 +72,8 @@ public class Quiz {
 
     // Saves the quiz results in a separate file.
     public void save() {
-        // Creates the results file. ("H:\\ProgrammingLabs\\src\\lab9\\save.txt")
-        File resultsFile = new File("D:\\Documents\\IdeaProjects\\Programming1Labs\\src\\lab9\\save.txt");
+        // Creates the results file.
+        File resultsFile = new File("src/lab9", "save.txt");
         try {
             resultsFile.createNewFile();
             PrintStream fileWriter = new PrintStream(resultsFile);
