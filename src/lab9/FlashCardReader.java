@@ -11,7 +11,7 @@ public class FlashCardReader {
     // The FlashCardReader constructor method. Instantiates the buffered reader if given a valid filename.
     public FlashCardReader(String filename) {
         try {
-            reader = new BufferedReader(new FileReader(new File("src/lab9", filename)));
+            reader = new BufferedReader(new FileReader("D:\\Documents\\IdeaProjects\\Programming1Labs\\src\\lab9\\" + filename));
         } catch (FileNotFoundException e) {
             System.out.println("Error: The file you want could not be found.");
         }

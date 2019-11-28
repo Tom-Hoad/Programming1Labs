@@ -1,7 +1,7 @@
 /* Lab 9: Handling Files */
 package lab9;
 
-import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.PrintStream;
 import java.util.ArrayList;
@@ -60,31 +60,34 @@ public class Quiz {
         return score;
     }
 
+    // Gets the number of flashcards.
+    public int getSize() { return flashCards.size(); }
+
     // Gets the percentage score.
     public double getPercentage() {
-        return (score / flashCards.size()) * 100;
-    }
-
-    // The main method to run the game.
-    public static void main(String[] args) {
-        Quiz quiz = new Quiz("Questions.txt");
+        double percentage = (double) getScore() / getSize();
+        return percentage * 100;
     }
 
     // Saves the quiz results in a separate file.
     public void save() {
         // Creates the results file.
-        File resultsFile = new File("src/lab9", "save.txt");
         try {
-            resultsFile.createNewFile();
-            PrintStream fileWriter = new PrintStream(resultsFile);
+            PrintStream fileWriter = new PrintStream(new FileOutputStream("save.txt"));
 
             // Prints results of the questions.
             for (int i = 0; i < flashCards.size(); i++) {
                 fileWriter.println(flashCards.get(i).getQuestion() + "," + userAnswers.get(i) + "," + userResults.get(i));
             }
-            fileWriter.println(getScore() + "," + flashCards.size() + "," + getPercentage());
+            fileWriter.println(getScore() + "," + getSize() + "," + getPercentage());
+            fileWriter.close();
         } catch (IOException e) {
             System.out.println("Error: The file could not be created.");
         }
+    }
+
+    // The main method to run the game.
+    public static void main(String[] args) {
+        Quiz quiz = new Quiz("Questions.txt");
     }
 }
