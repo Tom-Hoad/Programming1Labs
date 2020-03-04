@@ -12,9 +12,9 @@ public class RandomNumberWriter implements RandomIO {
         this.random = new Random(seed);
     }
 
-    public void writeRandomByte(String filename) {
+    public void writeRandomByte(String fileName) {
         try {
-            OutputStream out = new FileOutputStream(filename);
+            OutputStream out = new FileOutputStream(fileName);
 
             for (int i = 0; i < 10000; i++) {
                 out.write(String.valueOf(random.nextInt(100000)).getBytes());
@@ -26,9 +26,9 @@ public class RandomNumberWriter implements RandomIO {
         }
     }
 
-    public void writeRandomChars(String filename) {
+    public void writeRandomChars(String fileName) {
         try {
-            Writer writer = new FileWriter(filename);
+            Writer writer = new FileWriter(fileName);
 
             for (int i = 0; i < 10000; i++) {
                 writer.write(String.valueOf(random.nextInt(100000)));
