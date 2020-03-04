@@ -14,16 +14,14 @@ public class RandomNumberWriter implements RandomIO {
 
     public void writeRandomByte(String filename) {
         try {
-            FileOutputStream out = new FileOutputStream(filename);
+            OutputStream out = new FileOutputStream(filename);
 
             for (int i = 0; i < 10000; i++) {
-                String str = String.valueOf(random.nextInt(100000));
-                byte b[] = str.getBytes();
-                out.write(b);
+                out.write(String.valueOf(random.nextInt(100000)).getBytes());
             }
 
             out.close();
-        } catch (IOException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
