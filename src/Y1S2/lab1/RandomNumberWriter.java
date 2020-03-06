@@ -12,32 +12,26 @@ public class RandomNumberWriter implements RandomIO {
         this.random = new Random(seed);
     }
 
-    public void writeRandomByte(String fileName) {
-        try {
-            OutputStream out = new FileOutputStream(fileName);
+    @Override
+    public void writeRandomByte(String fileName) throws IOException {
+        DataOutputStream out = new DataOutputStream(new FileOutputStream(fileName));
 
-            for (int i = 0; i < 10000; i++) {
-                out.write(String.valueOf(random.nextInt(100000)).getBytes());
-            }
-
-            out.close();
-        } catch (Exception e) {
-            e.printStackTrace();
+        for (int i = 0; i < 10000; i++) {
+            out.write(random.nextInt(100000));
         }
+
+        out.close();
     }
 
-    public void writeRandomChars(String fileName) {
-        try {
-            Writer writer = new FileWriter(fileName);
+    @Override
+    public void writeRandomChars(String fileName) throws IOException {
+        Writer writer = new FileWriter(fileName);
 
-            for (int i = 0; i < 10000; i++) {
-                writer.write(String.valueOf(random.nextInt(100000)));
-                writer.write('\n');
-            }
-
-            writer.close();
-        } catch (IOException e) {
-            e.printStackTrace();
+        for (int i = 0; i < 10000; i++) {
+            writer.write(String.valueOf(random.nextInt(100000)));
+            writer.write('\n');
         }
+
+        writer.close();
     }
 }
