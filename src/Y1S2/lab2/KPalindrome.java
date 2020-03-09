@@ -7,7 +7,7 @@ public class KPalindrome implements PalindromeChecker {
         if (i == 1) {
             return isPalindrome(s);
         } else {
-            return breakString(s, i - 1, 0);
+            return true;
         }
     }
 
@@ -24,15 +24,11 @@ public class KPalindrome implements PalindromeChecker {
     }
 
     // Breaks the string apart.
-    public boolean breakString(String s, int i, int count) {
-        if (count != s.length()) {
-            if (count == 0) {
-                return isKPalindrome(s.substring(0, 0) + s.substring(count + 1), i - 1);
-            } else {
-                return isKPalindrome(s.substring(0, count - 1) + s.substring(count + 1), i - 1);
-            }
+    public String breakString(String s, int index) {
+        if (index > 0) {
+            return (s.substring(0, index - 1) + s.substring(index + 1));
         } else {
-            return false;
+            return (s.substring(0, 0) + s.substring(index + 1));
         }
     }
 }
