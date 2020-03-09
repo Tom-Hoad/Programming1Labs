@@ -3,13 +3,13 @@ package Y1S2.lab2;
 import uk.ac.soton.ecs.comp1206.labtestlibrary.interfaces.recursion.MinimumInArray;
 
 public class MinInt implements MinimumInArray{
-
     public static void main(String[] numbers){
         int[] arr = {24,52,74,9,34,23,64,34};
         MinInt minInt = new MinInt();
         System.out.println("Minimum is: " + minInt.findMin(arr));
     }
 
+    // Finds the min value in an array by recursion.
     public int findMin(int[] array){
         if (array.length == 2) {
             return findMinAux(array);
