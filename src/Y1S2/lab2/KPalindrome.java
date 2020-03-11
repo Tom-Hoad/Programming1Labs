@@ -4,10 +4,14 @@ import uk.ac.soton.ecs.comp1206.labtestlibrary.interfaces.recursion.PalindromeCh
 
 public class KPalindrome implements PalindromeChecker {
     public boolean isKPalindrome(String s, int i) {
-        if (i == 1) {
-            return isPalindrome(s);
-        } else {
+        boolean palindrome = isPalindrome(s);
+
+        if (i == 0) {
+            return palindrome;
+        } else if (palindrome) {
             return true;
+        } else {
+            return breakStrings(s, i - 1, 0);
         }
     }
 
@@ -16,19 +20,32 @@ public class KPalindrome implements PalindromeChecker {
         int midPoint = s.length() / 2;
 
         if (s.length() % 2 == 0) {
-            return s.substring(0, midPoint - 1).equals(s.substring(midPoint));
+            return s.substring(0, midPoint).equals(reverseString(s.substring(midPoint)));
         } else {
-            midPoint = (int) Math.floor(midPoint);
-            return s.substring(0, midPoint - 1).equals(s.substring(midPoint + 1));
+            return  s.substring(0, midPoint).equals(reverseString(s.substring(midPoint + 1)));
         }
     }
 
-    // Breaks the string apart.
-    public String breakString(String s, int index) {
-        if (index > 0) {
-            return (s.substring(0, index - 1) + s.substring(index + 1));
+    // Reverses a string.
+    public String reverseString(String s) {
+        if (s.isEmpty()) {
+            return s;
         } else {
-            return (s.substring(0, 0) + s.substring(index + 1));
+            return reverseString(s.substring(1)) + s.charAt(0);
         }
+    }
+
+    // Returns the broken string.
+    public boolean breakStrings(String s, int i, int count) {
+        if (count != s.length()) {
+            boolean brokenString = isKPalindrome((s.substring(0, count) + s.substring(count + 1)), i);
+
+            if (brokenString) {
+                return true;
+            } else {
+                return breakStrings(s, i, count + 1);
+            }
+        }
+        return false;
     }
 }
