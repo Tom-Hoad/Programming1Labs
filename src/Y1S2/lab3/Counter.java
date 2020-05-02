@@ -11,7 +11,7 @@ public class Counter implements UnitCounter {
     }
 
     // The method to add one to the counter.
-    public void addOne() {
+    public synchronized void addOne() {
         count++;
     }
 
