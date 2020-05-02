@@ -19,16 +19,18 @@ public class Producer extends FactoryWorker {
     // Adds a random number to the queue.
     public int action() {
         Random rand = new Random();
-        int randInt = rand.nextInt(99999);
+        int randInt = rand.nextInt();
         super.belt.enqueue(randInt);
         return randInt;
     }
 
     public void run() {
         do {
-            action();
+            try {
+                action();
+            } catch (IndexOutOfBoundsException e) {
+                messageError();
+            }
         } while (!Thread.currentThread().isInterrupted());
-
-        messageError();
     }
 }

@@ -7,11 +7,17 @@ public class Belt extends CyclicQueue {
 
     @Override
     public synchronized void enqueue(int value) {
-        super.enqueue(value);
+        try {
+            super.enqueue(value);
+        } catch (Exception ignored) {}
     }
 
     @Override
     public synchronized int dequeue() {
-        return super.dequeue();
+        try {
+            return super.dequeue();
+        } catch (Exception ignored) {
+            return 0;
+        }
     }
 }

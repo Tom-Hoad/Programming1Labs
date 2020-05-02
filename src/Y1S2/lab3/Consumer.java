@@ -22,7 +22,7 @@ public class Consumer extends FactoryWorker {
         do {
             try {
                 action();
-            } catch (Exception e) {
+            } catch (IndexOutOfBoundsException e) {
                 messageError();
             }
         } while (!Thread.currentThread().isInterrupted());
