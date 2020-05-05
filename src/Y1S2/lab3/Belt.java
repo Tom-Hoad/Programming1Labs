@@ -7,17 +7,22 @@ public class Belt extends CyclicQueue {
 
     @Override
     public synchronized void enqueue(int value) {
-        try {
-            super.enqueue(value);
-        } catch (Exception ignored) {}
+        while (isFull()) {
+            try {
+                this.wait();
+            } catch (InterruptedException ignored) { }
+        }
+        super.enqueue(value);
+        this.notifyAll();
     }
 
     @Override
     public synchronized int dequeue() {
-        try {
-            return super.dequeue();
-        } catch (Exception ignored) {
-            return 0;
+        while (isEmpty()) {
+            try {
+                this.wait();
+            } catch (InterruptedException ignored) { }
         }
+        return super.dequeue();
     }
 }
