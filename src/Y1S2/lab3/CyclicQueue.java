@@ -46,12 +46,12 @@ public class CyclicQueue implements NumberQueue {
         }
     }
 
-    // The method to say wether the queue is empty.
+    // The method to say whether the queue is empty.
     public boolean isEmpty() {
         return head == - 1;
     }
 
-    // The method to say wether the queue is full.
+    // The method to say whether the queue is full.
     public boolean isFull() {
         return (head == 0 && tail == arr.length - 1) || (head == tail + 1);
     }
