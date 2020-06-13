@@ -9,14 +9,13 @@ import static org.junit.jupiter.api.Assertions.*;
 class DAGSortTest {
     @Test
     void correctOrder() throws CycleDetectedException, InvalidNodeException {
-        int[][] edges = {{2, 3}, {3, 4}, {5}, {}, {}, {4}};
+        int[][] edges = {{1, 2}, {2, 3}, {3, 4}, {}, {}};
         assertTrue(checkOrders(edges), "Not found the correct topological order.");
     }
 
     // Checks if the given order matches any of the possible orders.
     private boolean checkOrders(int[][] edges) throws CycleDetectedException, InvalidNodeException {
-        int[][] possibleOrders = {{0, 1, 2, 3, 5, 4}, {0, 1, 2, 5, 3, 4}, {0, 1, 2, 5, 4, 3}, {0, 1, 3, 2, 5, 4},
-                                    {1, 0, 2, 3, 5, 4}, {1, 0, 2, 5, 3, 4}, {1, 0, 2, 5, 4, 3}, {1, 0, 3, 2, 5, 4}};
+        int[][] possibleOrders = {{0, 1, 2, 3, 4}, {0, 1, 2, 4, 3}};
         int[] givenOrder = DAGSort.sortDAG(edges);
         boolean found = false;
 
@@ -27,6 +26,12 @@ class DAGSortTest {
             }
         }
         return found;
+    }
+
+    @Test
+    void singleNode() throws CycleDetectedException, InvalidNodeException {
+        int[][] edges = {{}};
+        assertArrayEquals(DAGSort.sortDAG(edges), new int[]{0}, "The order is just the single node.");
     }
 
     @Test
